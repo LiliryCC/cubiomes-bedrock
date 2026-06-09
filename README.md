@@ -13,9 +13,12 @@ $$P = \frac{N_{\text{Village with Stronghold}}}{N_{\text{Village}}}$$
 We already know this rate is strongly correlated with the coordinates (x, z). Yet for modern versions, there has been a lack of hard data to prove whether the probability in a specific grid is actually higher or lower since the spawnpoint algorithms have changed. That's why I built this to help.
 
 The code will scan the coordinates in precise grids (32x32 blocks, or 2x2 chunks by default) and simulate massive amounts of PRNG cycles. To ensure statistical confidence without wasting CPU power, it utilizes an **Adaptive Truncated Sampling Logic**:
-* **The Ceiling:** It blasts through up to **2,000,000 seeds** per grid to guarantee accurate data even in barren areas.
-* **Early Truncation:** The moment the engine finds exactly **300 valid villages** in a single grid, it immediately stops searching and calculates the rate. This ensures that high-density "golden rings" are processed instantly while maintaining an equal statistical weight across the entire map. Of course, you can modify these parameters if you wish.
+
+* **The Ceiling:** It blasts through up to 2,000,000 seeds per grid to guarantee accurate data even in barren areas.
+* **Early Truncation:** The moment the engine finds exactly **300 valid villages** in a single grid, it immediately stops searching and calculates the rate. This ensures that high-density areas are processed instantly while maintaining an equal statistical weight across the entire map.
 * **The "Village Dead Zone" Interceptor:** Bedrock Edition calculates village generation within a 34x34 chunk grid (544x544 blocks). However, to prevent structure overlap and heavy AI pathfinding lag (I assume), the developers hardcoded a physical buffer: the game restricts the placement by using `nextInt(34 - 8)`. This means in *every* 544-block cycle across the entire infinite world, **the last 8 chunks (128 blocks) are physically forbidden from generating a village.** (For example, the coordinate intervals `[-128, 0]` and `[416, 544]`). It acts like an invisible net cutting the world into isolated islands. Therefore, instead of wasting millions of PRNG cycles in these desolate grids, I implemented an $O(1)$ mathematical interceptor. If a scanning bounding box falls entirely within these 128-block strips, the radar instantly marks it as `0.0%` (represented as an `X` in the terminal) and moves on. This simple pruning logic dramatically boosts the global scanning speed!
+
+...and of course, you can modify these parameters if you wish.
 
 ## How to Use
 
