@@ -18,7 +18,9 @@ set(CUBIOMES_CORE_SOURCES
 )
 
 add_executable(heatmap 1_heatmap.c ${CUBIOMES_CORE_SOURCES})
+add_executable(shv_rate 1_shv_rate_for_specific_square.c ${CUBIOMES_CORE_SOURCES})
 
 if(OpenMP_C_FOUND)
     target_link_libraries(heatmap PUBLIC OpenMP::OpenMP_C)
+    target_link_libraries(shv_rate PUBLIC OpenMP::OpenMP_C)
 endif()

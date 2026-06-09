@@ -30,6 +30,8 @@ The code will scan the coordinates in precise grids (32x32 blocks, or 2x2 chunks
    * **Confidence Levels:** `TARGET_SAMPLES` and `max_seeds`
 4. Alternatively, if you don't want to run the code yourself, you can simply grab the provided heatmap and use it. Hope it helps!
 
+Also, if you are only curious about the rate of a specific grid (instead of scanning over a large area), you could try changing the parameters and running the `1_shv_rate_for_specific_square.c` file.
+
 ## What You Will Get
 
 A `.csv` file containing the probability of a village being a Stronghold Village within your specified grid. You can import this data into Excel and apply conditional formatting to generate a highly readable heatmap plot like this:
