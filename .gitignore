@@ -9,4 +9,4 @@ docs/LayerSummary.toc
 *.o
 *.a
 a.out
-
+build/
