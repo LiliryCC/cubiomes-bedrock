@@ -168,7 +168,7 @@ int main() {
             }
             fflush(stdout); 
         }
-        printf(" (Z=[%d,%d] 扫毕)\n", min_block_z, max_block_z); 
+        printf(" (Z=[%d,%d] done)\n", min_block_z, max_block_z); 
     }
 
     double global_time_spent = omp_get_wtime() - global_start_time;
@@ -205,7 +205,7 @@ int main() {
     fclose(csv_file);
 
     printf("\n============= 最终报告 =============\n");
-    printf("矩阵总耗时: %.2f 秒\n", global_time_spent);
+    printf("Time Cost: %.2f s\n", global_time_spent);
     printf("-> %dx%d CSV 数据已导出！\n", grid_size_x, grid_size_z);
     printf("-> 请前往当前项目文件夹下的 [ heatmap.csv ] 文件查看\n");
     printf("=========================================================\n");

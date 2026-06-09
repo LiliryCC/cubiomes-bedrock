@@ -10,7 +10,7 @@ In Bedrock RSG speedrunning, gambling for a Stronghold Village is widely conside
 
 $$P = \frac{N_{\text{Village with Stronghold}}}{N_{\text{Village}}}$$
 
-We already know this rate is strongly correlated with the coordinates (x, z). Yet for modern versions, there has been a lack of hard data to prove whether the probability in a specific grid is actually higher or lower since the spawnpoint algorithms have changed. That's why I built this to help.
+We already know this rate is strongly correlated with the coordinates (x, z). Yet for modern versions, there has been a lack of hard data to prove whether the probability in a specific grid is actually higher or lower since the spawnpoint algorithms have changed (in 1.18 I assume). That's why I built this to help.
 
 The code will scan the coordinates in precise grids (32x32 blocks, or 2x2 chunks by default) and simulate massive amounts of PRNG cycles. To ensure statistical confidence without wasting CPU power, it utilizes an **Adaptive Truncated Sampling Logic**:
 
@@ -32,6 +32,6 @@ The code will scan the coordinates in precise grids (32x32 blocks, or 2x2 chunks
 
 ## What You Will Get
 
-A `.csv` file containing the probability of a village being a Stronghold Village within your specified grid. You can import this data into spreadsheet software (like Excel) and apply conditional formatting to generate a highly readable heatmap plot like this:
+A `.csv` file containing the probability of a village being a Stronghold Village within your specified grid. You can import this data into Excel and apply conditional formatting to generate a highly readable heatmap plot like this:
 
 <img width="1755" height="1241" alt="heatmap" src="https://github.com/user-attachments/assets/30458c20-4653-4942-9945-024b99e2b1d8" />
