@@ -55,6 +55,7 @@ int main() {
     int step_z = 32;
 
     // Calculate grid sizes based on the defined ranges and steps
+    // 根据定义的范围和步长计算网格大小
     int grid_size_x = (end_x - start_x) / step_x; 
     int grid_size_z = (end_z - start_z) / step_z; 
     double heatmap[grid_size_z][grid_size_x];
@@ -164,7 +165,9 @@ int main() {
                 if (total_villages > 150) printf("4");
                 else if (total_villages >= 51 && total_villages <= 150) printf("3");
                 else if (total_villages >= 11 && total_villages <= 50) printf("2");
-                else printf("1"); 
+                else if (total_villages >= 11 && total_villages <= 50) printf("2");
+                else if (total_villages >= 1 && total_villages <= 10) printf("1");
+                else printf("0"); 
             }
             fflush(stdout); 
         }
