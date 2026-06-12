@@ -1,3 +1,7 @@
+<img width="4000" height="2250" alt="3d61b2c1e7f9849acbe3ac7ccb1ae53d" src="https://github.com/user-attachments/assets/09fe98cd-de63-40f2-a89b-0b6a6780dca4" />
+
+-------
+
 This is an application fork of [this epic bedrock C Library](https://github.com/FragrantResult186/cubiomes-bedrock) for calculating Stronghold Village Rates, which helps make optimal routing decisions in Bedrock speedrunning. The data is based on `MC_1_21`, but I assume it's structurally applicable to every version later than `MC_1_14`.
 
 The original core algorithms are ported from the incredible [Minecraft biome generation C Library](https://github.com/Cubitect/cubiomes) by [Cubitect](https://github.com/Cubitect).
@@ -28,7 +32,7 @@ The code will scan the coordinates in precise grids (32x32 blocks, or 2x2 chunks
    * **Bounding Box:** `start_x`, `end_x`, `start_z`, `end_z`
    * **Resolution:** `step_x`, `step_z` (Default is 32 blocks, optimized for Bedrock's chunk math)
    * **Confidence Levels:** `TARGET_SAMPLES` and `max_seeds`
-4. Alternatively, if you don't want to run the code yourself, you can simply grab the provided heatmap and use it. Hope it helps!
+4. Alternatively, if you don't want to run the code yourself, you can simply takeaway that provided heatmap and use it. Hope it helps!
 
 Also, if you are only curious about the rate of a specific grid (instead of scanning over a large area), you could try changing the parameters and running the `1_shv_rate_for_specific_square.c` file.
 
